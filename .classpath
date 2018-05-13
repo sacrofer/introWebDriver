@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/byte-buddy-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/client-combined-3.12.0.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/client-combined-3.12.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/gson-2.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/guava-23.6-jre.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/httpclient-4.5.3.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/httpcore-4.4.6.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/okhttp-3.9.1.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/okio-1.13.0.jar"/>
+	<classpathentry kind="lib" path="C:/testautomation/libs/selenium-server-standalone-3.12.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
