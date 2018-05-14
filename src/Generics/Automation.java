@@ -7,6 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Automation {
+	private static final String CHROME_DRIVER_NAME = "webdriver.chrome.driver";
+	private static final String GENERIC_DRIVER_LOCATION = "C:\\testautomation\\libs\\drivers\\";
+	private static final String CHROME_DRIVER_LOCATION = GENERIC_DRIVER_LOCATION + "chromedriver.exe";
+	private static final String FIREFOX_DRIVER_NAME = "webdriver.gecko.driver";
+	private static final String FIREFOX_DRIVER_LOCATION = GENERIC_DRIVER_LOCATION + "geckodriver.exe";
 	protected static WebDriver driver = null;
 	
 	private static boolean OpenUrl (String url) {
@@ -31,11 +36,11 @@ public class Automation {
 	private static void SetupDriver (String browser) {		
 		switch (browser){
 			case "Chrome":
-				System.setProperty("webdriver.chrome.driver", "C:\\testautomation\\libs\\drivers\\chromedriver.exe");
+				System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_LOCATION);
 			    driver = new ChromeDriver();
 			    break;
 			case "Firefox":
-				System.setProperty("webdriver.gecko.driver", "C:\\testautomation\\libs\\drivers\\geckodriver.exe");
+				System.setProperty(FIREFOX_DRIVER_NAME, FIREFOX_DRIVER_LOCATION);
 		        driver = new FirefoxDriver();
 		        break;
 			default:
