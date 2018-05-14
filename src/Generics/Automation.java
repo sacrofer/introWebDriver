@@ -7,25 +7,28 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Automation {
-	protected static String browser = null;
-	protected static WebDriver driver;
-	protected static String url ="";
+	protected static WebDriver driver = null;
 	
-	protected static boolean OpenUrl (String url) {
-		
-		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
-		
-		if (!url.isEmpty()) {
-			driver.get(url);
-			return true;
+	private static boolean OpenUrl (String url) {
+		if (driver != null) {
+			driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
+			
+			if (!url.isEmpty()) {
+				driver.get(url);
+				return true;
+			}else {
+				System.out.println("URL cannot be empty");
+				System.exit(-1);
+				return false;			
+			}
 		}else {
-			System.out.println("URL cannot be empty");
+			System.out.println("Driver is not initialized");
 			System.exit(-1);
-			return false;			
+			return false;
 		}
 	}
 	
-	protected static void SetupDriver (String browser) {		
+	private static void SetupDriver (String browser) {		
 		switch (browser){
 			case "Chrome":
 				System.setProperty("webdriver.chrome.driver", "C:\\testautomation\\libs\\drivers\\chromedriver.exe");
