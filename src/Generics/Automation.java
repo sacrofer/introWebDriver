@@ -55,12 +55,17 @@ public class Automation {
 		
 		try {
 			SetupDriver(browser);
-			OpenUrl(url);
+			OpenUrl(url);			
 		}catch (Exception e){
 			System.out.println("An error happened trying to open the url");
 			System.exit(-1);
 
 		}
+	}
+	
+	protected static void Babye() {		
+		driver.quit();
+		System.exit(-1);
 	}
 
 }
