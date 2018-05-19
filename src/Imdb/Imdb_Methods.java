@@ -54,6 +54,7 @@ public class Imdb_Methods extends Automation {
 	}
 
 	private static boolean IsDirectorInMainPage(String director) {
+		//TODO: Clarify how to find an element that does not have a parent
 		By xPath = By.xpath("//span[@itemprop='director']");
 		
 		WebElement correctElement = GetCorrectElement (xPath, director);		
@@ -62,21 +63,22 @@ public class Imdb_Methods extends Automation {
 	}
 
 	private static boolean IsDirectorInDetails(String director) {
-		System.out.println("Director is not in main page let's try in the details");
-		//TODO: Clarify error with this xPath "Invalid XPath"
+		System.out.println("Director is not in main page let's try in the details");		
 		String xPath = "//a[@href='fullcredits/?ref_=tt_ov_st_sm']";
-		WebElement DetailsLink = driver.findElement(By.xpath(xPath));
 		
-		//TODO: Clarify this kind of assert
-		//assert DetailsLink == null : String.format("Details link does not exist");
-		if (DetailsLink != null)
+		try {			
+			WebElement DetailsLink = driver.findElement(By.xpath(xPath));			
 			DetailsLink.click();
+		} catch (Exception e) {
+			e.printStackTrace();
+			Babye();
+		}
+		xPath = "//*[contains(text(), 'Directed by')]/following-sibling::table[1]//a[contains(text(), '" + director + "')]";
 		
-		if (driver.findElement(By.partialLinkText(director)).isDisplayed())
+		if (driver.findElement(By.xpath(xPath)).isDisplayed())
 			return true;
 		
-		return false;
-		
+		return false;		
 	}
 	
 	private static WebElement GetCorrectElement (By by, String textToFind) {
