@@ -1,7 +1,5 @@
 package Imdb;
 
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -78,23 +76,5 @@ public class Imdb_Methods extends Automation {
 			return true;
 		
 		return false;		
-	}
-	
-	private static WebElement GetCorrectElement (By by, String textToFind) {
-		List<WebElement> elements = driver.findElements(by);
-		for (WebElement element : elements) {
-			if (element.getText().contains(textToFind))
-				return element;
-		}
-		return null;		
-	}
-	
-	private static WebElement GetCorrectElement (By by, String textToFind, String textToFind2) {
-		List<WebElement> elements = driver.findElements(by);
-		for (WebElement element : elements) {
-			if (element.getText().contains(textToFind) && element.getText().contains(textToFind2))
-				return element;
-		}
-		return null;		
-	}
+	}	
 }
