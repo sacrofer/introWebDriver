@@ -1,9 +1,13 @@
 package Generics;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Automation {
@@ -38,6 +42,8 @@ public class Automation {
 			case "Chrome":
 				System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_LOCATION);
 			    driver = new ChromeDriver();
+			    ChromeOptions ops = new ChromeOptions();
+		        ops.addArguments("--disable-notifications");
 			    break;
 			case "Firefox":
 				System.setProperty(FIREFOX_DRIVER_NAME, FIREFOX_DRIVER_LOCATION);
@@ -67,5 +73,22 @@ public class Automation {
 		driver.quit();
 		System.exit(-1);
 	}
-
+	
+	public static WebElement GetCorrectElement (By by, String textToFind) {
+		List<WebElement> elements = driver.findElements(by);
+		for (WebElement element : elements) {
+			if (element.getText().contains(textToFind))
+				return element;
+		}
+		return null;		
+	}
+	
+	public static WebElement GetCorrectElement (By by, String textToFind, String textToFind2) {
+		List<WebElement> elements = driver.findElements(by);
+		for (WebElement element : elements) {
+			if (element.getText().contains(textToFind) && element.getText().contains(textToFind2))
+				return element;
+		}
+		return null;		
+	}
 }
