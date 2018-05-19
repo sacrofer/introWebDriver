@@ -54,7 +54,6 @@ public class Imdb_Methods extends Automation {
 	}
 
 	private static boolean IsDirectorInMainPage(String director) {
-		//TODO: Clarify how to find an element that does not have a parent
 		By xPath = By.xpath("//span[@itemprop='director']");
 		
 		WebElement correctElement = GetCorrectElement (xPath, director);		
