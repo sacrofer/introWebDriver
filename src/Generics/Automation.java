@@ -40,10 +40,10 @@ public class Automation {
 	private static void SetupDriver (String browser) {		
 		switch (browser){
 			case "Chrome":
-				System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_LOCATION);
-			    driver = new ChromeDriver();
-			    ChromeOptions ops = new ChromeOptions();
+				ChromeOptions ops = new ChromeOptions();
 		        ops.addArguments("--disable-notifications");
+				System.setProperty(CHROME_DRIVER_NAME, CHROME_DRIVER_LOCATION);
+			    driver = new ChromeDriver(ops);			    
 			    break;
 			case "Firefox":
 				System.setProperty(FIREFOX_DRIVER_NAME, FIREFOX_DRIVER_LOCATION);
