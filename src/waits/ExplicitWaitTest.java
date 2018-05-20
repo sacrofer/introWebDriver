@@ -33,8 +33,8 @@ public class ExplicitWaitTest {
         WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-email")));
         WebElement passwordField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-password")));
 
-        emailField.sendKeys("test.selenium@gmail.com");
-        passwordField.sendKeys("n07MyPassw0rd");
+        emailField.sendKeys("test.selenium@gmail.com"); //robert.glez.clase.selenium@gmail.com
+        passwordField.sendKeys("n07MyPassw0rd"); //Test_1234
 
         WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("button")));
         signInButton.click();
